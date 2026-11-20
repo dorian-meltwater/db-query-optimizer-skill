@@ -1,0 +1,40 @@
+{
+  explainVersion: '1',
+  queryPlanner: {
+    namespace: 'shop.orders',
+    winningPlan: {
+      stage: 'SORT',
+      sortPattern: { createdAt: -1 },
+      memLimit: 104857600,
+      limitAmount: 20,
+      type: 'simple',
+      inputStage: {
+        stage: 'FETCH',
+        filter: { total: { '$gt': 500 } },
+        inputStage: {
+          stage: 'IXSCAN',
+          keyPattern: { status: 1 },
+          indexName: 'status_1',
+          isMultiKey: false,
+          indexBounds: { status: [ '["paid", "paid"]' ] }
+        }
+      }
+    },
+    rejectedPlans: [ { stage: 'LIMIT', inputStage: { stage: 'FETCH', inputStage: { stage: 'IXSCAN', indexName: 'createdAt_1' } } } ]
+  },
+  executionStats: {
+    executionSuccess: true,
+    nReturned: 20,
+    executionTimeMillis: 241,
+    totalKeysExamined: Long('75000'),
+    totalDocsExamined: 75000,
+    executionStages: {
+      stage: 'SORT', nReturned: 20, usedDisk: false,
+      inputStage: {
+        stage: 'FETCH', filter: { total: { '$gt': 500 } }, nReturned: 37400, docsExamined: 75000,
+        inputStage: { stage: 'IXSCAN', indexName: 'status_1', keysExamined: 75000, indexBounds: { status: [ '["paid", "paid"]' ] } }
+      }
+    }
+  },
+  ok: 1
+}

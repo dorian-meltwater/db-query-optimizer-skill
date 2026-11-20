@@ -1,0 +1,2 @@
+{"queryPlanner":{"winningPlan":{"stage":"PROJECTION_COVERED","inputStage":{"stage":"IXSCAN","indexName":"status_1_createdAt_-1","indexBounds":{"status":["[\"paid\", \"paid\"]"],"createdAt":["[MaxKey, MinKey]"]}}},"rejectedPlans":[]},
+"executionStats":{"nReturned":20,"executionTimeMillis":1,"totalKeysExamined":20,"totalDocsExamined":0,"executionStages":{"stage":"PROJECTION_COVERED","nReturned":20,"inputStage":{"stage":"IXSCAN","keysExamined":20,"indexBounds":{"status":["[\"paid\", \"paid\"]"],"createdAt":["[MaxKey, MinKey]"]}}}}}

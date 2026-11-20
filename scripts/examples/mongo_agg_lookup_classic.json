@@ -1,0 +1,7 @@
+{"explainVersion":"1","stages":[
+ {"$cursor":{"queryPlanner":{"namespace":"shop.customers","winningPlan":{"stage":"LIMIT","limitAmount":50,"inputStage":{"stage":"COLLSCAN","filter":{"country":{"$eq":"MX"}}}},"rejectedPlans":[]},
+  "executionStats":{"nReturned":50,"executionTimeMillis":9120,"totalKeysExamined":0,"totalDocsExamined":250,"executionStages":{"stage":"LIMIT","nReturned":50,"inputStage":{"stage":"COLLSCAN","docsExamined":250}}}},"nReturned":50,"executionTimeMillisEstimate":2},
+ {"$lookup":{"from":"orders","as":"orders","localField":"_id","foreignField":"customerId"},"totalDocsExamined":15000000,"totalKeysExamined":0,"collectionScans":50,"indexesUsed":[],"nReturned":50,"executionTimeMillisEstimate":9100},
+ {"$project":{"email":true,"n":{"$size":["$orders"]}},"nReturned":50,"executionTimeMillisEstimate":9100},
+ {"$sort":{"sortKey":{"n":-1},"limit":10},"totalDataSizeSortedBytesEstimate":4000,"usedDisk":false,"nReturned":10,"executionTimeMillisEstimate":9101}
+],"ok":1}

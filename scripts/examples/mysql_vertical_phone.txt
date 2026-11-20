@@ -1,0 +1,13 @@
+*************************** 1. row ***************************
+           id: 1
+  select_type: SIMPLE
+        table: customers
+   partitions: NULL
+         type: ALL
+possible_keys: idx_phone
+          key: NULL
+      key_len: NULL
+          ref: NULL
+         rows: 49870
+     filtered: 10.00
+        Extra: Using where

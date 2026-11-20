@@ -1,0 +1,3 @@
+{"explainVersion":"1","queryPlanner":{"namespace":"shop.orders","parsedQuery":{"customerId":{"$eq":4242}},"winningPlan":{"stage":"SORT","sortPattern":{"createdAt":-1},"memLimit":104857600,"type":"simple","inputStage":{"stage":"COLLSCAN","filter":{"customerId":{"$eq":4242}},"direction":"forward"}},"rejectedPlans":[]},
+"executionStats":{"executionSuccess":true,"nReturned":6,"executionTimeMillis":182,"totalKeysExamined":0,"totalDocsExamined":300000,
+"executionStages":{"stage":"SORT","nReturned":6,"sortPattern":{"createdAt":-1},"usedDisk":false,"inputStage":{"stage":"COLLSCAN","filter":{"customerId":{"$eq":4242}},"nReturned":6,"docsExamined":300000}}}}
